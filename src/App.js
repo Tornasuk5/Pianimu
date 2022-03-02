@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import SheetsList from './components/Sheet/SheetsList';
+import Header from './components/Header/Header';
+import Front from './components/Front/Front';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div className="App">
+    <header className="header-menu">
+      <Header pag="Home"/>
+    </header>
+
+    <div className="front-slogan"><Front pag=""/></div>
+
+    <main>
+      <section className="last-sheets">
+        <SheetsList filter=""/>
+      </section>
+    </main>
+
+  </div> );
 }
 
 export default App;

@@ -1,0 +1,36 @@
+JavaScript
+-------------------------------
+- IF ternarios -> logo == '../logo192.png' ? '../logo512.png' : '../logo192.png'
+(Significa que si la variable logo es igual a '../logo192.png' entonces el valor devuelto por el if es '../logo512.png'
+y si no el vlaor devuelto es '../logo192.png')
+
+- Map (array method) - Por cada elemento dentro del array devuelve ese elemento (return implicito) -> array.map(element => valor)
+
+
+JSX
+-------------------------------
+- Para leer variables tienen que ir entre corchetes -> {variable}
+
+
+useState
+-------------------------------
+- useState(valor)
+- Array de dos posiciones [0,1]
+- Posición 0 -> Valor
+- Posición 1 -> Actualizar Valor
+- Deconstrucción -> const [valor, updateValor] = useState(valor);
+
+
+useEffect
+-------------------------------
+- Function que SE EJECUTA CADA VEZ QUE RENDERIZE UN ELEMENTO O COMPONENTE (WARNING LOOP INFINITO)
+- Primer parámetro -> Function
+- Segundo parámetro -> Dependecias (si es un array vacío significa que no tiene dependencias,
+por lo que la function solo se ejecutaría una vez)
+
+
+onClick method
+-------------------------------
+- onClick={ () => x }
+
+

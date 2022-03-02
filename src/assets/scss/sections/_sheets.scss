@@ -1,0 +1,17 @@
+.sheets-list{
+    display: flex;
+
+    .sheet{
+        & + .sheet{
+            padding-left: 2rem;
+        }
+
+        &-img{
+            text-align: center;
+            img{
+                max-height: 12rem;
+            }
+        }
+    }
+    
+}

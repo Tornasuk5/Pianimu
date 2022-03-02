@@ -1,0 +1,20 @@
+.front-slogan{
+    width: 100%;
+    min-height: 50vh;
+    background-color: lightblue;
+    margin-top: 1rem;
+
+    &-container{
+        width: 100%;
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-text{
+            h1{
+                margin: 0;
+            }
+        }
+    }
+}
