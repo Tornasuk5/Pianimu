@@ -1,24 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import SheetsList from './components/Sheet/SheetsList';
-import Header from './components/Header/Header';
-import Front from './components/Front/Front';
+import { Link, Route } from "wouter";
+import Home from './pages/Home';
+import Sheets from './pages/Sheets';
+import Animes from './pages/Animes';
+import VisualNovels from './pages/VisualNovels';
+import Header from './components/sections/Header';
+
 
 const App = () => {
 
   return (
   <div className="App">
-    <header className="header-menu">
-      <Header pag="Home"/>
-    </header>
-
-    <div className="front-slogan"><Front pag=""/></div>
-
-    <main>
-      <section className="last-sheets">
-        <SheetsList filter=""/>
-      </section>
-    </main>
-
+    <Route path="/" component={Home} />
+    <Route path="/sheets" component={Sheets} />
+    <Route path="/animes" component={Animes} />
+    <Route path="/visual-novels" component={VisualNovels} />
   </div> );
 }
 

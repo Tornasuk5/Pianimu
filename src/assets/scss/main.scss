@@ -1,9 +1,19 @@
 /* ---------- IMPORTS ---------- */
-@use "main/App";
-@use "main/index";
-@use "sections/header";
-@use "sections/front";
-@use "sections/sheets";
+@import "utils/variables";
+
+@import
+    "main/App",
+    "main/index";
+
+@import "pages/home";
+
+@import
+    "sections/header",
+    "sections/front",
+    "sections/sheetsList";
+
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css');
+
 
 
 

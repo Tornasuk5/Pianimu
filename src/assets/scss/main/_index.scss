@@ -1,6 +1,26 @@
+/* ---------- FONTS ---------- */
+
+@font-face { 
+	font-family: DancingScript; 
+	src: url("../../fonts/DancingScript-VariableFont_wght.ttf");
+}
+
+@font-face { 
+	font-family: Courgette-Regular; 
+	src: url("../../fonts/Courgette-Regular.ttf");
+}
+
+@font-face { 
+	font-family: JAPANBRUSH;
+	src: url("../../fonts/JAPANBRUSH.ttf");
+}
+
+/* ---------- MAIN HTML ---------- */
+
 body {
+  color: $dark_color_1;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: Courgette-Regular, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,3 +31,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root{
+  background-color: #fffefe;
+}
+
+

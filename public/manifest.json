@@ -8,14 +8,49 @@
       "type": "image/x-icon"
     },
     {
-      "src": "./images/logo-sakura.png",
+      "src": "./images/main-img.png",
+      "type": "image/png",
+      "sizes": "1500x1350"
+    },
+    {
+      "src": "./images/sakura-background.png",
+      "type": "image/png",
+      "sizes": "1400x1050"
+    },
+    {
+      "src": "./images/piano1.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "./images/anibasho-icon.png",
+      "src": "./images/sheet3.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "512x512"
+    },
+    {
+      "src": "./images/sakura.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./images/home.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./images/dango.png",
+      "type": "image/png",
+      "sizes": "330x245"
+    },
+    {
+      "src": "./images/howl_scarecrow.png",
+      "type": "image/png",
+      "sizes": "343x341"
+    },
+    {
+      "src": "./images/saitama.png",
+      "type": "image/png",
+      "sizes": "370x342"
     }
   ],
   "start_url": ".",

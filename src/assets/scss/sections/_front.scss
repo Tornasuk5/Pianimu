@@ -1,20 +1,47 @@
 .front-slogan{
-    width: 100%;
-    min-height: 50vh;
-    background-color: lightblue;
-    margin-top: 1rem;
+    display: flex;
+    width: 90%;
+    min-height: 70vh;
+    background-image: url("../../../../public/images/main-img.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 3rem;
+    justify-self: center;
 
     &-container{
-        width: 100%;
-        min-height: 50vh;
         display: flex;
         align-items: center;
-        justify-content: center;
+        width: 50%;
 
         &-text{
             h1{
                 margin: 0;
+                font-size: $h1_size;
+                padding-bottom: 1rem;
+                font-family: DancingScript;
             }
+
+            h2{
+                margin: 0 .75rem 0 0;
+                font-size: $h2_size;
+                font-weight: normal;
+                color: $main_color_1;
+                font-family: DancingScript;
+            }
+
+
+            & > div{
+                display: flex;
+                align-items: center;
+                padding-top: 1rem;
+            }
+
+            img {
+                //display: none;
+                max-width: 5.5rem;
+            }
+
         }
     }
 }
