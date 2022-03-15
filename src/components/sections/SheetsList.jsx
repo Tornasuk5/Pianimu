@@ -32,7 +32,7 @@ const SheetsList = props => {
             <div className="sheets-section-sheets">
               <div className="sheets-section-sheets-list">
               {
-                sheets.map(sheet => <Sheet key={sheet.id} name={sheet.name} anime={sheet.anime} imgSheet={sheet.img} path={sheet.path}/>)
+                sheets.map(sheet => <Sheet key={sheet.id} name={sheet.name} anime={sheet.anime} imgSheet={sheet.img} path={sheet.path} pdf={sheet.pdf}/>)
               }
               </div>
 

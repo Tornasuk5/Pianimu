@@ -24,11 +24,13 @@
             display: flex;
             padding: 1rem;
 
-            & > div{
+            & > a{ // & > div
                 height: fit-content;
                 transition: all 0.25s;
                 margin-left: 3rem;
-                cursor: pointer;
+                text-decoration: none;
+                color: $dark_color_1;
+                //cursor: pointer;
 
                 &:hover {
                     transform: scale(1.05);

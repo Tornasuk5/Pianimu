@@ -11,6 +11,9 @@ const App = () => {
 
   return (
   <div className="App">
+    <header className="header-menu">
+      <Header/>
+    </header>
     <Route path="/" component={Home} />
     <Route path="/sheets" component={Sheets} />
     <Route path="/animes" component={Animes} />

@@ -3,11 +3,13 @@ import { Link, Route } from "wouter";
 
 const Header = props => {
 
+    const [pag, setPag] = useState('home');
+
     const headerLinks = [
-        <Link to="/">Home</Link>,
-        <Link to="/sheets">Sheets</Link>,
-        <Link to="/animes">Animes</Link>,
-        <Link to="/visual-novels">Visual Novels</Link>
+        <Link to='/' onClick={() => setPag('home')} className={pag === 'home' ? 'menu-link-active' : ''}>Home</Link>,
+        <Link to='/sheets' onClick={() => setPag('sheets')} className={pag === 'sheets' ? 'menu-link-active' : ''}>Sheets</Link>,
+        <Link to='/animes' onClick={() => setPag('animes')} className={pag === 'animes' ? 'menu-link-active' : ''}>Animes</Link>,
+        <Link to='/visual-novels' onClick={() => setPag('visual-novels')} className={pag === 'visual-novels' ? 'menu-link-active' : ''}>Visual Novels</Link>
     ];
 
     let keyCount = 0;
