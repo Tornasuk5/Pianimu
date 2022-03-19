@@ -22,6 +22,9 @@ const Home = props => {
                                 <img className="clannad-icon" src="./images/dango.png"/>    
                             </div>
                         </div>
+                        <div className="front-home-container-img">
+                            <img src="./images/main-img.png"/>
+                        </div>
                     </div>
                 </div>
                 <div className="main-container-sections">

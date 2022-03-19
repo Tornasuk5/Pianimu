@@ -1,18 +1,20 @@
 .front-home{
-    display: flex;
-    width: 90%;
     min-height: 70vh;
+    margin-top: 3rem;
+    justify-self: center;
+    /*
     background-image: url("../../../../public/images/main-img.png");
     background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-top: 3rem;
-    justify-self: center;
+    */
 
     &-container{
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        justify-content: center;
         align-items: center;
-        width: 50%;
 
         &-text{
             h1{
@@ -42,6 +44,12 @@
                 max-width: 5.5rem;
             }
 
+        }
+
+        &-img{
+            img{
+                max-width: 45rem;
+            }
         }
     }
 }

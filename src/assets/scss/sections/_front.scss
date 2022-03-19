@@ -1,0 +1,36 @@
+.front-sheets, .front-animes, .front-vs{
+    min-height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 10px $main_color_2;
+
+    &-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2{
+            font-size: $h2_big_size;
+            margin: 1rem;
+            font-family: DancingScript;
+        }
+
+        h3{
+            font-size: $h3_size;
+            margin: 1rem;
+        }
+    }
+}
+
+.front-sheets{
+
+}
+
+.front-animes{
+
+}
+
+.front-vs{
+
+}
