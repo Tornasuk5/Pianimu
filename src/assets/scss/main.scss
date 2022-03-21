@@ -9,13 +9,18 @@
     "pages/home",
     "pages/sheets",
     "pages/animes",
-    "pages/visual-novels";
+    "pages/visual-novels",
+    "pages/sheetInfo";
 
 @import
     "sections/header",
     "sections/front-home",
     "sections/front",
-    "sections/sheetsList";
+    "sections/home-sheets";
+
+@import
+    "objects/sheet",
+    "objects/animeVN";
 
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css');
 

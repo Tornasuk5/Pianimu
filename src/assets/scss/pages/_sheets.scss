@@ -1,11 +1,13 @@
-.list-sheets{
+.list-sheets-section{
     display: flex;
     justify-self: center;
     justify-content: center;
-    width: 90%;
-    max-width: 1600px;
     background-image: url("../../../../public/images/sakura-background.png");
     background-size: 50%;
     background-repeat: space;
     background-position: center;
+
+    &-sheets-all{
+        display: grid;
+    }
 }

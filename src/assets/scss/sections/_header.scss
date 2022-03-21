@@ -11,11 +11,13 @@
 
         &-logo{
             display: flex;
-            justify-content: center;
+            justify-self: center;
             align-items: center;
             color: $dark_color_1;
             text-decoration: none;
             grid-area: headerLogo;
+            width: fit-content;
+            cursor: default;
     
             h2{
                 margin: 0 1rem 0 0;
@@ -34,40 +36,22 @@
             grid-area: headerMenu;
             justify-content: center;
             align-items: center;
-        }
 
-        &-links{
-            display: flex;
-            justify-content: center;
+            nav {
 
-            ul{
-                display: flex;
-                align-items: center;
-                padding: 0;
-                margin: 0;
+                a + a{
+                    margin-left: 3rem;
+                }
 
-                li{
-                    list-style: none;
+                a {
+                    font-size: $text_big_size;
+                    text-decoration: none;
+                    color: #3d3d3d;
 
-                    a{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        font-size: $text_big_size;
-                        text-decoration: none;
-                        color: #3d3d3d;
-
-                        &:hover{
-                            color: $main_color_1;
-                        }
+                    &:hover{
+                        color: $main_color_1;
                     }
-
                 }
-
-                li + li{
-                    padding-left: 3.5rem;
-                }
-
             }
 
             .menu-link-active{
@@ -79,28 +63,36 @@
             grid-area: headerAniBasho;
             display: flex;
             justify-self: center;
-            align-self: center;
             align-items: center;
             font-size: $text_big_size;
             text-decoration: none;
             color: $dark_color_1;
 
-            img{
+            img {
                 max-width: 4.5rem;
-                margin-right: .75rem;
+                margin-right: -5rem;
+                transition: all 0.5s;
+            }
+
+            h3{
+                opacity: 0;
+                font-family: JAPANBRUSH;
+                color: $main_color_2;
+                font-size: 2rem;
+                margin: 0;
+                padding-top: .75rem;
+                transition: all 0.5s;
             }
 
             &:hover{
-                &::after{
-                    content: "AniBasho";
-                    font-family: JAPANBRUSH;
-                    color: $main_color_2;
-                    font-size: 2rem;
-                    padding-top: .75rem;
+                img{
+                    margin-right: .75rem;
+                }
+
+                h3{
+                    opacity: 1;
                 }
             }
-
-            
         }
     }
 }

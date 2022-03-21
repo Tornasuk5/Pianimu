@@ -1,9 +1,9 @@
 import React from "react";
-import SheetsList from '../components/sections/SheetsList';
+import GridView from '../components/sections/GridView';
+import Header from '../components/sections/Header';
 
 const Home = props => {
     return <div className="home-page">
-            
             <main className="main-container">
                 <div className="front-home">
                     <div className="front-home-container">
@@ -29,10 +29,10 @@ const Home = props => {
                 </div>
                 <div className="main-container-sections">
                     <section className="sheets-last-uploads">
-                        <SheetsList filter="Last Uploads"/>
+                        <GridView section="sheets" view="sheets" title="Last Uploads" filter="date" limit="10"/>
                     </section>
                     <section className="sheets-for-beginners">
-                        <SheetsList filter="For Beginners"/>
+                        <GridView section="sheets" view="sheets" title="For Beginners" filter="level" value="low" limit="10"/>
                     </section>
                 </div>
             </main>
