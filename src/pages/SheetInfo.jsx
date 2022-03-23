@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import { useLocation  } from "wouter";
-import { collection, getDocs, query, where, orderBy, limit} from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import firestoreDb from '../firebase/firebaseConfig';
 
 const SheetInfo = props => {
     const [sheet, setSheet] = useState('');
-    const sheetPath = useLocation()[0].substring(1);
 
     useEffect(() => {
+        console.log(props.sheetPath);
         const getSheet = async() => {
-            const sheetQuery = query(collection(firestoreDb, "sheets"), where("path", "==", sheetPath));
+            const sheetQuery = query(collection(firestoreDb, "sheets"), where("path", "==", props.sheetPath));
             const sheetFirestore = await getDocs(sheetQuery);
             
             sheetFirestore.forEach((sheet) => {

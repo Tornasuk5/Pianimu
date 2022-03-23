@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { Link, Route } from "wouter";
-import NavigationLink from './NavigationLink';
+import React from 'react';
+import NavigationLink from './items/NavigationLink';
 
 const Header = props => {
 

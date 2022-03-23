@@ -1,11 +1,14 @@
-.home-sections{
-    display: grid;
+.list-anime-sheets-section{
+    display: flex;
+    flex-direction: column;
     justify-self: center;
     justify-content: center;
-    width: 90%;
-    max-width: 100rem;
     background-image: url("../../../../public/images/sakura-background.png");
     background-size: 50%;
     background-repeat: space;
     background-position: center;
+
+    &-anime-sheets-all{
+        display: grid;
+    }
 }

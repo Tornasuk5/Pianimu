@@ -1,12 +1,13 @@
 import React from "react";
-import { Link, Route } from "wouter";
+import { Link, useLocation } from "wouter";
 
 const Sheet = props => {
+    const [location, setLocation] = useLocation();
     
-    return <Link to={props.path}>
+    return <Link to={location.split("/")[1] === "" ? `/sheets/${props.path}` : `${location}/${props.path}`}>
         <div className="sheet-background" style={{ backgroundImage: `url(${props.imgSheet})` }}>
-            <div className={props.animeLogo !== null ? "sheet-anime-logo" : "sheet-anime-img"}>
-                <img src={props.animeLogo !== null ? props.animeLogo : props.animeImg}/>
+            <div className={props.animeLogo !== undefined ? "sheet-anime-logo" : "sheet-anime-img"}>
+                <img src={props.animeLogo !== undefined ? props.animeLogo : props.animeImg}/>
             </div>
         </div>
         <div className="sheet-name"><p>{props.name}</p></div>

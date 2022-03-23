@@ -1,4 +1,4 @@
-.list-sheets-section {
+.slider-list-sheets-section {
     display: flex;
     flex-direction: column;
     padding: 2rem 0;
@@ -20,8 +20,8 @@
         margin-top: 3rem;
         overflow-x: hidden;
         padding: .75rem;
-    
-        &-slide{
+
+        .slider-slide-button{
             position: absolute;
             display: flex;
             align-items: center;

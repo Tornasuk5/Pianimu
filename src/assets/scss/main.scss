@@ -5,14 +5,16 @@
     "main/App",
     "main/index";
 
-@import 
+@import
     "pages/home",
     "pages/sheets",
     "pages/animes",
+    "pages/animeSheets",
     "pages/visual-novels",
     "pages/sheetInfo";
 
 @import
+    "sections/main-container",
     "sections/header",
     "sections/front-home",
     "sections/front",

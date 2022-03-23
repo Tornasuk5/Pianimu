@@ -1,6 +1,6 @@
 import React from "react";
 import GridView from '../components/sections/GridView';
-import Header from '../components/sections/Header';
+import SliderListView from "../components/sections/SliderListView";
 
 const Home = props => {
     return <div className="home-page">
@@ -27,12 +27,12 @@ const Home = props => {
                         </div>
                     </div>
                 </div>
-                <div className="main-container-sections">
+                <div className="home-sections">
                     <section className="sheets-last-uploads">
-                        <GridView section="sheets" view="sheets" title="Last Uploads" filter="date" limit="10"/>
+                        <SliderListView section="sheets" view="sheets" title="Last Uploads" filter="id" limit="10"/>
                     </section>
                     <section className="sheets-for-beginners">
-                        <GridView section="sheets" view="sheets" title="For Beginners" filter="level" value="low" limit="10"/>
+                        <SliderListView section="sheets" view="sheets" title="For Beginners" filter="level" filterValue="low" limit="10"/>
                     </section>
                 </div>
             </main>

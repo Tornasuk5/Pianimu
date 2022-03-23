@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, Route } from "wouter";
-import Animes from "../../pages/Animes";
-import GridView from "../sections/GridView";
+import { Link, useLocation } from "wouter";
 
 const AnimeVN = props => {
-    return <Link href={props.path}>
+    const [location, setLocation] = useLocation();
+
+    return <Link to={`${location}/${props.path}`}>
         <div className="anime-vn-img">
             <img src={props.img}/>
         </div>
