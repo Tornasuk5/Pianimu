@@ -1,47 +1,39 @@
-.animes-all, .vn-all {
-    display: grid;
-    overflow: hidden;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 3rem 0;
-    row-gap: 2.5rem;
-    column-gap: 5rem;
-    transition: all 0.75s;
+.animes-all > a,
+.vn-all > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: $dark_color_1;
+    max-width: 10rem;
+    //cursor: pointer;
 
-    & > a { // & > div
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: fit-content;
-        transition: all 0.3s;
-        text-decoration: none;
-        color: $dark_color_1;
-        max-width: 10rem;
-        //cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
 
-        &:hover {
-            transform: scale(1.05);
-
-            .anime-vn-img{
-                box-shadow: rgba(255, 209, 209, 0.75) 0px 25px 20px -20px;
-            }
+        .anime-vn-img{
+            box-shadow: rgba(255, 209, 209, 0.75) 0px 25px 20px -20px;
         }
+    }
 
-        .anime-vn-img {
-            img {
-                border-radius: 5px;
-                max-height: 15rem;
-            }
+    .anime-vn-img {
+        img {
+            border-radius: 5px;
+            max-height: 15rem;
         }
+    }
 
-        .anime-vn-name{
-            text-align: center;
+    .anime-vn-name{
+        text-align: center;
 
-            p{
-                margin: 1rem 0 0 0;
-                font-size: $text_normal_size;
-            }
+        p{
+            margin: 1rem 0 0 0;
+            font-size: $text_normal_size;
         }
     }
 }
+
 

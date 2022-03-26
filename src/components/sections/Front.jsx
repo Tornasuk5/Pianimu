@@ -1,9 +1,40 @@
-import React from 'react';
+import React, {useEffect, useState, useRef} from 'react';
+import { collection, getDocs, query, where, orderBy} from "firebase/firestore";
+import firestoreDb from '../../firebase/firebaseConfig';
 
 const Front = props => {
+
+    const isTitle = props.title !== "";
+
+    const [anime, setAnime] = useState('');
+
+    useEffect(() => {
+        if (!isTitle){
+            const getAnime = async() => {
+
+                const animeFirestore = await getDocs(query(collection(firestoreDb, "animes"), where("path", "==", props.animePath)));
+
+                if (animeFirestore.docs.length == 0){
+                    const vnFirestore = await getDocs(query(collection(firestoreDb, "visual-novels"), where("path", "==", props.animePath)));
+
+                    vnFirestore.forEach((vnFs) => { 
+                        setAnime(vnFs.data());
+                    });
+
+                } else 
+                    animeFirestore.forEach((animeFs) => { 
+                        setAnime(animeFs.data());
+                    });
+            }
+        
+            getAnime();
+        }
+    }, []);
+    
+
     return <div className={`front-${props.pagKey}`}>
         <div className={`front-${props.pagKey}-container`}>
-            <h2>{props.title}</h2>
+            <h2>{!isTitle ? anime.name : props.title}</h2>
         </div>
     </div>
 };

@@ -3,8 +3,7 @@ import GridView from '../components/sections/GridView';
 import SliderListView from "../components/sections/SliderListView";
 
 const Home = props => {
-    return <div className="home-page">
-            <main className="main-container">
+    return <main className="home-page">
                 <div className="front-home">
                     <div className="front-home-container">
                         <div className="front-home-container-text">
@@ -28,15 +27,10 @@ const Home = props => {
                     </div>
                 </div>
                 <div className="home-sections">
-                    <section className="sheets-last-uploads">
-                        <SliderListView section="sheets" view="sheets" title="Last Uploads" filter="id" limit="10"/>
-                    </section>
-                    <section className="sheets-for-beginners">
-                        <SliderListView section="sheets" view="sheets" title="For Beginners" filter="level" filterValue="low" limit="10"/>
-                    </section>
+                    <SliderListView section="slider-sheets" view="sheets" title="Last Uploads" filter="id" limit="10"/>
+                    <SliderListView section="slider-sheets" view="sheets" title="For Beginners" filter="level" filterValue="low" limit="10"/>
                 </div>
             </main>
-        </div>
 };
 
 export default Home;

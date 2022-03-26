@@ -50,7 +50,7 @@ const GridView = props => {
   if (pagSection === "sheets" || pagSection === "anime-sheets")
       mapViews = listViews.map (
         view =>
-          <Sheet key={view.id} name={view.name} anime={view.anime} imgSheet={view.sheetImg} 
+          <Sheet key={view.id} name={view.name} anime={view.anime} sheetImg={view.sheetImg} 
           path={view.path} pdf={view.pdf} animeLogo = {view.animeLogo} animeImg = {view.animeImg}/>
       )
   else
@@ -83,15 +83,11 @@ const GridView = props => {
   }
   */
 
-  return (<div className={pagClass}>
-            
-            <div className={`${pagClass}-${listClass}`}>
-              
-              <div ref={listRef} className={listClass}> {mapViews} </div>
-              
-            </div>
-            
-        </div>
+  return (<section className={pagClass}>
+             
+            <div ref={listRef} className={listClass}> {mapViews} </div>
+                       
+        </section>
   ); 
 }
 

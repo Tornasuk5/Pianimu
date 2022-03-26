@@ -46,19 +46,19 @@ const SliderListView = props => {
   }, []);
 
   const pagSection = props.section;
-  const pagClass = `list-${pagSection}-section`;
+  const pagClass = `${pagSection}-section`;
 
-  return (<div className={`slider-${pagClass}`}>
+  return (<section className={pagClass}>
 
-            <div className={`slider-${pagClass}-title`}><h3>{props.title}</h3></div>
+            <div className={`${pagClass}-title`}><h3>{props.title}</h3></div>
             
-            <div className={`slider-${pagClass}-${pagSection}`}>
+            <div className={`${pagClass}-sheets`}>
               
               <div ref={listRef} className={pagSection}> 
                 {
                     listViews.map (view =>
 
-                    <Sheet key={view.id} name={view.name} anime={view.anime} imgSheet={view.sheetImg} 
+                    <Sheet key={view.id} name={view.name} anime={view.anime} sheetImg={view.sheetImg} 
                     path={view.path} pdf={view.pdf} animeLogo = {view.animeLogo} animeImg = {view.animeImg}/>
 
                     )
@@ -71,7 +71,7 @@ const SliderListView = props => {
               
             </div>
             
-          </div>
+          </section>
   ); 
 }
 

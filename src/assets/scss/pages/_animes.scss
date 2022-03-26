@@ -1,14 +1,20 @@
+.animes-page{
+    display: grid;
+    justify-content: center;
+}
+
 .list-animes-section{
     display: flex;
     flex-direction: column;
-    justify-self: center;
-    justify-content: center;
-    background-image: url("../../../../public/images/sakura-background.png");
-    background-size: 50%;
-    background-repeat: space;
-    background-position: center;
 
-    &-animes-all{
+    .animes-all {
         display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        padding: 3rem 1rem;
+        column-gap: 5rem;
+        row-gap: 1rem;
+        overflow: hidden;
+        transition: all 0.75s;
     }
 }
+

@@ -22,23 +22,31 @@ const SheetInfo = props => {
   
     }, []);
 
-    return <div className="sheet-info-page">
-            <main className="main-container">
+    return <main className="sheet-info-page">
                 <div className="sheet-layout">
                     <div className="sheet-layout-img">
-                        <img src={sheet.sheetImg}/>
+                        <a href={sheet.pdf} target="_blank" style={{ backgroundImage: `url(${sheet.sheetImg})` }}>
+                            <img src={sheet.sheetImg}/>
+                        </a>
                     </div>
-                    <div className="sheet-layout-info">
+                    <div className="sheet-layout-info" style={{ backgroundImage: `url(${sheet.animeImg})` }}>
+                        <div className="sheet-layout-info-background"></div>
                         <div className="sheet-layout-info-container">
-                            <h3>Name: {sheet.name}</h3>
-                            <h3>Anime: {sheet.anime}</h3>
-                            <h3>Level: {sheet.level}</h3>
-                            <h3>Pags: {sheet.pags}</h3>
+                            <h2>{sheet.name}</h2>
+                            <div className="sheet-layout-info-container-grid">
+                                <div className="sheet-layout-info-container-grid-text">
+                                    <p>Anime: {sheet.anime}</p>
+                                    <p>Level: {sheet.level}</p>
+                                    <p>Pages: {sheet.pags}</p>
+                                </div>
+                                <div className="sheet-layout-info-container-grid-img">
+                                    <img src={sheet.animeImg}></img>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </main>
-        </div>
 };
 
 export default SheetInfo;

@@ -3,12 +3,10 @@ import Front from "../components/sections/Front";
 import GridView from "../components/sections/GridView";
 
 const VisualNovels = props => {
-    return <div className="visual-novels-page">
-            <main className="main-container">
+    return <main className="visual-novels-page">
                 <Front pagKey = "vn" title="Visual Novels"/>
                 <GridView section="vn" view="visual-novels" filter=""/>
             </main>
-        </div>
 };
 
 export default VisualNovels;

@@ -1,14 +1,19 @@
+.sheets-page{
+    display: grid;
+    justify-content: center;
+}
+
 .list-sheets-section{
     display: flex;
     flex-direction: column;
-    justify-self: center;
-    justify-content: center;
-    background-image: url("../../../../public/images/sakura-background.png");
-    background-size: 50%;
-    background-repeat: space;
-    background-position: center;
 
-    &-sheets-all{
+    .sheets-all {
         display: grid;
+        overflow: hidden;
+        grid-template-columns: repeat(7, 1fr);
+        padding: 3rem 1rem;
+        row-gap: 2.5rem;
+        column-gap: 4rem;
+        transition: all 0.75s;
     }
 }
