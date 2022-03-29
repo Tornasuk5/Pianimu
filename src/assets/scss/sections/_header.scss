@@ -8,11 +8,11 @@
         grid-template-areas: "headerLogo headerMenu headerAniBasho";
         justify-content: center;
         box-shadow: rgba(61, 61, 61, 0.5) 0px 3px 10px 0px;
-        padding: 2rem 0;
+        padding: 2rem 3rem;
 
         &-logo{
             display: flex;
-            justify-self: center;
+            justify-self: flex-start;
             align-items: center;
             color: $dark_color_1;
             text-decoration: none;
@@ -37,6 +37,7 @@
             grid-area: headerMenu;
             justify-content: center;
             align-items: center;
+            justify-self: center;
 
             nav {
 
@@ -63,7 +64,7 @@
         .menu-link-anibasho {
             grid-area: headerAniBasho;
             display: flex;
-            justify-self: center;
+            justify-self: flex-end;
             align-items: center;
             font-size: $text_big_size;
             text-decoration: none;

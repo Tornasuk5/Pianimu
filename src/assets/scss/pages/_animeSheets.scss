@@ -1,20 +1,18 @@
 .anime-sheets-page{
     display: grid;
-    justify-content: center;
+    width: 90%;
+    justify-self: center;
 }
 
 .list-anime-sheets-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
 
     .anime-sheets-all {
         display: grid;
-        overflow: hidden;
-        grid-template-columns: repeat(7, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
         padding: 3rem 1rem;
-        row-gap: 2.5rem;
-        column-gap: 4rem;
+        row-gap: 2rem;
+        column-gap: 3rem;
         transition: all 0.75s;
     }
 }
