@@ -29,7 +29,7 @@
             left: 0;
             transition: all 0.75s;
             padding: .75rem;
-            width: 90%;
+            width: auto;
         
             a + a {
                 margin-left: 3rem;
@@ -42,7 +42,8 @@
             align-items: center;
             justify-content: center;
             top: .75rem;
-            bottom: 24%;
+            bottom: 0;
+            max-height: 14rem;
             background-color: rgba(66,66,66, 0.25);
             border-radius: 3px;
             cursor: pointer;
@@ -58,13 +59,13 @@
         }
     
         .slide-left-on{
-            right: 96.5%;
             left: 0;
+            padding: 0 1rem;
         }
     
         .slide-right-on{
             right: 0;
-            left: 96.5%;
+            padding: 0 1rem;
         }
     
         .slide-left-off{

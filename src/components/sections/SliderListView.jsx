@@ -78,7 +78,7 @@ const SliderListView = props => {
 }
 
 function onSlide(listRef, side, buttonState, setButtonState){
-  let slideWidth = listRef.scrollWidth - listRef.clientWidth;
+  let slideWidth = listRef.scrollWidth - listRef.offsetParent.offsetWidth;
   if (side === "right") listRef.style.left = `${-slideWidth}px`;
   else listRef.style.left = "0px";
   setButtonState(!buttonState);
