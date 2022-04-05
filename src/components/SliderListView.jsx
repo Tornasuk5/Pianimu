@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
-import Sheet from '../objects/Sheet';
+import Sheet from 'models/Sheet';
 import { collection, getDocs, query, where, orderBy, limit} from "firebase/firestore";
-import firestoreDb from '../../firebase/firebaseConfig';
+import firestoreDb from 'firebaseConfig';
 import SlideButton from './items/SlideButton';
 
 const SliderListView = props => {
@@ -48,8 +48,6 @@ const SliderListView = props => {
   const pagSection = props.section;
   const pagClass = `${pagSection}-section`;
 
-  console.log(listRef.current);
-
   return (<section className={pagClass}>
 
             <div className={`${pagClass}-title`}><h3>{props.title}</h3></div>
@@ -78,10 +76,12 @@ const SliderListView = props => {
 }
 
 function onSlide(listRef, side, buttonState, setButtonState){
-  let slideWidth = listRef.scrollWidth - listRef.offsetParent.offsetWidth;
-  if (side === "right") listRef.style.left = `${-slideWidth}px`;
-  else listRef.style.left = "0px";
-  setButtonState(!buttonState);
+    let slideWidth = listRef.scrollWidth - listRef.offsetParent.offsetWidth;
+
+    if (side === "right") listRef.style.left = `${-slideWidth}px`;
+    else listRef.style.left = "0px";
+    
+    setButtonState(!buttonState);
 }
 
 export default SliderListView;

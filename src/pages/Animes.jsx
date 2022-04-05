@@ -1,6 +1,6 @@
 import React from "react";
-import Front from "../components/sections/Front";
-import GridView from "../components/sections/GridView";
+import Front from "components/Front";
+import GridView from "components/GridView";
 
 const Animes = props => {
     return <main className="animes-page">

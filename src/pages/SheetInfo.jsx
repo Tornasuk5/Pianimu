@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { useLocation  } from "wouter";
+import { useLocation } from "wouter";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import firestoreDb from '../firebase/firebaseConfig';
+import firestoreDb from 'firebaseConfig';
 
 const SheetInfo = props => {
     const [sheet, setSheet] = useState('');
+
+    const [location, setLocation] = useLocation();
 
     useEffect(() => {
         const getSheet = async() => {
@@ -60,10 +62,10 @@ const SheetInfo = props => {
                             </div>
                         </a>
 
-                        <a href='#' target='_blank'>
+                        <a onClick={() => setLocation(sheet.animePath)}>
                             <div className='sheet-download'>
                                 <i className="bi bi-file-text"></i>
-                                <p>Anime sheets</p>
+                                <p>Anime / Visual Novel</p>
                             </div>
                         </a>
 

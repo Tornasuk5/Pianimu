@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/scss/main.scss';
+import 'assets/scss/main.scss';
 import App from './App';
-import reportWebVitals from './assets/js/reportWebVitals';
+import reportWebVitals from 'assets/js/reportWebVitals';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

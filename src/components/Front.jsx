@@ -1,6 +1,6 @@
-import React, {useEffect, useState, useRef} from 'react';
-import { collection, getDocs, query, where, orderBy} from "firebase/firestore";
-import firestoreDb from '../../firebase/firebaseConfig';
+import React, {useEffect, useState} from 'react';
+import { collection, getDocs, query, where } from "firebase/firestore";
+import firestoreDb from 'firebaseConfig';
 
 const Front = props => {
 

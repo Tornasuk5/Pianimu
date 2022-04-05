@@ -6,6 +6,10 @@
 
 .list-sheets-section{
     display: grid;
+    background-image: url("../../../../public/images/sakura-background.png");
+    background-size: 50%;
+    background-repeat: space;
+    background-position: center;
 
     .sheets-all {
         display: grid;

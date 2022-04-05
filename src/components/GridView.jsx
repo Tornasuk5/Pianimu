@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react';
-import Sheet from '../objects/Sheet';
-import AnimeVN from '../objects/AnimeVN';
-import { collection, getDocs, query, where, orderBy} from "firebase/firestore";
-import firestoreDb from '../../firebase/firebaseConfig';
+import Sheet from 'models/Sheet';
+import AnimeVN from 'models/AnimeVN';
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import firestoreDb from 'firebaseConfig';
 
 const GridView = props => {
 
@@ -17,7 +17,7 @@ const GridView = props => {
 
           switch (props.filter){
             case "animePath":
-              viewQuery = query(collection(firestoreDb, props.view), where("animePath", "==", props.filterValue));
+              viewQuery = query(collection(firestoreDb, props.view), where("animePath", "in", [`/animes/${props.filterValue}`, `/visual-novels/${props.filterValue}`]));
               break;
 
             default:
@@ -50,7 +50,7 @@ const GridView = props => {
   if (pagSection === "sheets" || pagSection === "anime-sheets")
       mapViews = listViews.map (
         view =>
-          <Sheet key={view.id} name={view.name} anime={view.anime} sheetImg={view.sheetImg} 
+          <Sheet key={view.id} name={view.name} anime={view.anime} sheetImg={view.sheetImg}
           path={view.path} pdf={view.pdf} animeLogo = {view.animeLogo} animeImg = {view.animeImg}/>
       )
   else

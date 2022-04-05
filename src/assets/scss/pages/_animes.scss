@@ -6,6 +6,10 @@
 
 .list-animes-section{
     display: grid;
+    background-image: url("../../../../public/images/sakura-background.png");
+    background-size: 50%;
+    background-repeat: space;
+    background-position: center;
 
     .animes-all {
         display: grid;

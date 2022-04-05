@@ -1,13 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Route, Switch} from "wouter";
-import Home from './pages/Home';
-import Sheets from './pages/Sheets';
-import Animes from './pages/Animes';
-import VisualNovels from './pages/VisualNovels';
-import Header from './components/sections/Header';
-import SheetInfo from './pages/SheetInfo';
-import GridView from './components/sections/GridView';
-import AnimeSheets from './pages/AnimeSheets';
+import Home from 'pages/Home/Home';
+import Sheets from 'pages/Sheets';
+import Animes from 'pages/Animes';
+import VisualNovels from 'pages/VisualNovels';
+import Header from 'components/Header';
+import SheetInfo from 'pages/SheetInfo';
+import AnimeSheets from 'pages/AnimeSheets';
 
 const App = () => {
 
