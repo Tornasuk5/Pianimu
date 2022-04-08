@@ -15,7 +15,7 @@
                 display: flex;
             }
 
-            img{
+            img {
                 border-radius: 5px;
                 outline: solid 3px $main_color_2;
                 max-width: 25rem;
@@ -120,6 +120,10 @@
                     p{
                         font-size: $text_normal_size;
                         margin: 0 0 0 .5rem;
+
+                        @include desktop{
+                            font-size: $text_normal_size_desktop;
+                        }
                     }
                 }
             }

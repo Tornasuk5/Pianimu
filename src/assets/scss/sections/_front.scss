@@ -15,11 +15,10 @@
             font-size: $h2_big_size;
             margin: 1rem;
             font-family: DancingScript;
-        }
 
-        h3{
-            font-size: $h3_size;
-            margin: 1rem;
+            @include desktop{
+                font-size: $h2_big_size_desktop;
+            }
         }
     }
 }

@@ -4,96 +4,141 @@
 
     &-container{
         display: grid;
-        grid-template-columns: 20% 60% 20%;
-        grid-template-areas: "headerLogo headerMenu headerAniBasho";
-        justify-content: center;
+        grid-template-columns: 1fr 1fr;
         box-shadow: rgba(61, 61, 61, 0.5) 0px 3px 10px 0px;
-        padding: 2rem 3rem;
+        padding: 1.5rem;
 
-        &-logo{
+        @include desktop{
+            grid-template-columns: 20% 60% 20%;
+            grid-template-areas: "headerLogo headerMenu headerAniBasho";
+            justify-content: center;
+            box-shadow: rgba(61, 61, 61, 0.5) 0px 3px 10px 0px;
+            padding: 2rem 3rem;
+        }
+
+        &-logo {
             display: flex;
             justify-self: flex-start;
             align-items: center;
             color: $dark_color_1;
             text-decoration: none;
-            grid-area: headerLogo;
             width: fit-content;
             cursor: default;
+
+            @include desktop{
+                grid-area: headerLogo;
+            }
     
-            h2{
-                margin: 0 1rem 0 0;
+            h2 {
+                margin: 0 .75rem 0 0;
                 font-family: DancingScript;
                 font-size: $logo_text_size;
+
+                @include desktop{
+                    margin: 0 1rem 0 0;
+                    font-size: $logo_text_size_desktop;
+                }
             }
 
-            img{
-                max-width: 4rem;
+            img {
+                max-width: 2.75rem;
+                @include desktop{
+                    max-width: 4rem;
+                }
             }
             
         }
 
-        &-group{
-            display: flex;
-            grid-area: headerMenu;
-            justify-content: center;
-            align-items: center;
-            justify-self: center;
+        &-group {
+            display: none;
 
-            nav {
+            @include desktop{
+                display: flex;
+                grid-area: headerMenu;
+                justify-content: center;
+                align-items: center;
+                justify-self: center;
 
-                a + a{
-                    margin-left: 3rem;
-                }
+                nav {
 
-                a {
-                    font-size: $text_big_size;
-                    text-decoration: none;
-                    color: #3d3d3d;
+                    a + a{
+                        margin-left: 3rem;
+                    }
 
-                    &:hover{
-                        color: $main_color_1;
+                    a {
+                        font-size: $text_big_size;
+                        text-decoration: none;
+                        color: #3d3d3d;
+
+                        @include desktop{
+                            font-size: $text_big_size_desktop;
+
+                            &:hover{
+                                color: $main_color_1;
+                            }
+                        }
+
+                        
                     }
                 }
-            }
 
-            .menu-link-active{
-                color: $main_color_1;
+                .menu-link-active{
+                    color: $main_color_1;
+                }
             }
         }
 
         .menu-link-anibasho {
-            grid-area: headerAniBasho;
-            display: flex;
-            justify-self: flex-end;
-            align-items: center;
-            font-size: $text_big_size;
-            text-decoration: none;
-            color: $dark_color_1;
+            display: none;
 
-            img {
-                max-width: 4.5rem;
-                margin-right: -5rem;
-                transition: all 0.4s;
-            }
-
-            h3{
-                opacity: 0;
-                font-family: JAPANBRUSH;
-                color: $main_color_2;
-                font-size: 2rem;
-                margin: 0;
-                padding-top: .75rem;
-                transition: all 0.4s;
-            }
-
-            &:hover{
-                img{
-                    margin-right: .75rem;
+            @include desktop{
+                display: flex;
+                grid-area: headerAniBasho;
+                justify-self: flex-end;
+                align-items: center;
+                font-size: $text_big_size_desktop;
+                text-decoration: none;
+                color: $dark_color_1;
+    
+                img {
+                    max-width: 4.5rem;
+                    margin-right: -5rem;
+                    transition: all 0.4s;
                 }
-
+    
                 h3{
-                    opacity: 1;
+                    opacity: 0;
+                    font-family: JAPANBRUSH;
+                    color: $main_color_2;
+                    font-size: 2rem;
+                    margin: 0;
+                    padding-top: .75rem;
+                    transition: all 0.4s;
                 }
+    
+                &:hover{
+                    img{
+                        margin-right: .75rem;
+                    }
+    
+                    h3{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &-menu-mobile{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            @include desktop{
+                display: none;
+            }
+
+            i {
+                font-size: 2rem;
             }
         }
     }

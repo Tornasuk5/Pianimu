@@ -1,21 +1,30 @@
 .front-home {
-    display: flex;
-    min-height: 70vh;
-    width: 100%;
-    justify-content: center;
-    /*
-    background-image: url("../../../../public/images/main-img.png");
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: contain;
-    */
+    display: grid;
+    margin-bottom: 1rem;
+
+    @include desktop{
+        display: grid;
+        width: 100%;
+        justify-content: center;
+        min-height: 70vh;
+        margin-bottom: 0;
+    }
 
     &-container{
         display: grid;
-        grid-template-columns: repeat(2, auto);
-        gap: 2rem;
         align-items: center;
-        padding: 3rem 5rem;
+        padding: 2rem;
+
+        @include desktop{
+            grid-template-columns: repeat(2, auto);
+            gap: 2rem;
+            align-items: center;
+            padding: 3rem 2rem 3rem 4rem;
+        }
+
+        @include desktop-xxlarge{
+            padding: 3rem 5rem;
+        }
 
         &-text{
             display: flex;
@@ -28,8 +37,18 @@
             h1{
                 margin: 0;
                 font-size: $h1_size;
-                padding-bottom: 2rem;
                 font-family: DancingScript;
+                padding-bottom: 2rem;
+                text-align: center;
+
+                @include desktop{
+                    font-size: $h1_size_desktop - .5rem;
+                    text-align: left;
+                }
+
+                @include desktop-xxlarge{
+                    font-size: $h1_size_desktop;
+                }
             }
 
             h2{
@@ -38,26 +57,61 @@
                 font-weight: normal;
                 color: $main_color_1;
                 font-family: DancingScript;
+                text-align: center;
+
+                @include desktop{
+                    font-size: $h2_size_desktop - .5rem;
+                    text-align: left;
+                }
+
+                @include desktop-xxlarge{
+                    font-size: $h2_size_desktop;
+                }
             }
 
 
             & > div{
                 display: flex;
                 align-items: center;
+                justify-content: center;
+
+                @include desktop{
+                    justify-content: flex-start;
+                }
             }
 
             img {
-                //display: none;
-                max-width: 5.5rem;
+                display: none;
+
+                @include desktop{
+                    display: flex;
+                    max-width: 5.5rem;
+                }
             }
 
         }
 
         &-img{
-            display: flex;
+            display: none;
+
+            @include desktop{
+                display: grid;
+                align-self: center;
+            }
             
             img{
-                max-width: 45rem;
+                @include desktop{
+                    display: flex;
+                    max-width: 32rem;
+                }
+
+                @include desktop-xlarge{
+                    max-width: 38rem;
+                }
+
+                @include desktop-xxlarge{
+                    max-width: 45rem;
+                }
             }
         }
     }

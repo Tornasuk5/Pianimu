@@ -20,6 +20,9 @@ const Header = props => {
             <img src="./images/anibasho-icon.png"/>
             <h3>AniBasho</h3>
         </a>
+        <div className="header-menu-container-menu-mobile">
+            <i className="bi bi-list"></i>
+        </div>
     </div>
 };
 

@@ -1,14 +1,25 @@
-.home-page{
+.home-page { 
     display: grid;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
+
+    @include desktop{
+        padding-bottom: 3rem;
+    }
 }
 
 .home-sections{
     display: grid;
     justify-self: center;
     background-image: url("../../../../public/images/sakura-background.png");
-    background-size: 50%;
+    background-size: contain;
     background-repeat: space;
     background-position: center;
     width: 90%;
+    row-gap: 1rem;
+    
+
+    @include desktop{
+        background-size: 50%;
+        row-gap: 3rem;
+    }
 }

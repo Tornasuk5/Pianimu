@@ -6,24 +6,31 @@
     justify-content: center;
     justify-self: center;
     height: fit-content;
-    transition: all 0.3s;
     text-decoration: none;
     color: $dark_color_1;
-    max-width: 10rem;
-    //cursor: pointer;
+    max-width: 8rem;
 
-    &:hover {
-        transform: scale(1.07);
-
-        .anime-vn-img{
-            box-shadow: rgba(255, 209, 209, 0.75) 0px 25px 20px -20px;
+    @include desktop{
+        max-width: 10rem;
+        transition: all 0.3s;
+        
+        &:hover {
+            transform: scale(1.07);
+    
+            .anime-vn-img{
+                box-shadow: rgba(255, 209, 209, 0.75) 0px 25px 20px -20px;
+            }
         }
     }
 
     .anime-vn-img {
         img {
             border-radius: 5px;
-            max-height: 15rem;
+            max-height: 12rem;
+
+            @include desktop{
+                max-height: 15rem;
+            }
         }
     }
 
@@ -33,6 +40,10 @@
         p{
             margin: 1rem 0 0 0;
             font-size: $text_normal_size;
+
+            @include desktop{
+                font-size: $text_normal_size_desktop;
+            }
         }
     }
 }

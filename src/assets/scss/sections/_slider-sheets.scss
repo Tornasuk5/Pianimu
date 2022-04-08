@@ -1,6 +1,5 @@
 .slider-sheets-section {
     display: grid;
-    padding: 2rem 0;
     justify-content: flex-start;
     width: auto;
     position: relative;
@@ -11,9 +10,12 @@
         position: absolute;
         justify-self: center;
 
-        h3{
+        h3 {
             margin: 0;
-            font-size: $h3_size;
+
+            @include desktop{
+                font-size: $h3_size_desktop;
+            }
         }
     }
 
@@ -36,21 +38,29 @@
             }
         }
 
-        .slider-slide-button{
+        .slider-slide-button {
             position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
             top: .75rem;
             bottom: 0;
-            max-height: 14rem;
+            max-height: 11rem;
             background-color: rgba(66,66,66, 0.25);
             border-radius: 3px;
+            padding: 0 .75rem;
             cursor: pointer;
-    
-            &:hover{
-                background-color: rgba(66,66,66, 0.5);
+
+            @include desktop{
+                max-height: 14rem;
+                padding: 0 1rem;
+
+                &:hover{
+                    background-color: rgba(66,66,66, 0.5);
+                }
             }
+    
+            
     
             i{
                 color: $light_color_1;
@@ -58,21 +68,19 @@
             }
         }
     
-        .slide-left-on{
+        .slide-left-on {
             left: 0;
-            padding: 0 1rem;
         }
     
-        .slide-right-on{
+        .slide-right-on {
             right: 0;
-            padding: 0 1rem;
         }
     
-        .slide-left-off{
+        .slide-left-off {
             display: none;
         }
     
-        .slide-right-off{
+        .slide-right-off {
             display: none;
         }
     }

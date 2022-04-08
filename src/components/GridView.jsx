@@ -8,8 +8,6 @@ const GridView = props => {
 
   const [listViews, setListViews] = useState([]);
 
-  const listRef = useRef();
-
   useEffect(() => {
       const getViews = async() => {
 
@@ -85,7 +83,7 @@ const GridView = props => {
 
   return (<section className={pagClass}>
              
-            <div ref={listRef} className={listClass}> {mapViews} </div>
+            <div className={listClass}> {mapViews} </div>
                        
         </section>
   ); 
