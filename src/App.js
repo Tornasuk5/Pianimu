@@ -7,6 +7,8 @@ import VisualNovels from 'pages/VisualNovels';
 import Header from 'components/Header';
 import SheetInfo from 'pages/SheetInfo';
 import AnimeSheets from 'pages/AnimeSheets';
+import Footer from 'components/Footer';
+import { GridViewContextProvider } from 'context/GridViewContext';
 
 const App = () => {
 
@@ -33,21 +35,23 @@ const App = () => {
         { props => <AnimeSheets animePath={props.animePath}/> }
       </Route>
 
-      <Route path="/animes/:animePath/:sheetPath">
-        { props => <SheetInfo sheetPath={props.sheetPath}/> }
-      </Route>
-
       <Route path="/visual-novels" component={VisualNovels} />
 
       <Route path="/visual-novels/:vnPath">
         { props => <AnimeSheets animePath={props.vnPath}/> }
       </Route>
 
+      <Route path="/animes/:animePath/:sheetPath">
+            { props => <SheetInfo sheetPath={props.sheetPath}/> }
+      </Route>
+
       <Route path="/visual-novels/:vnPath/:sheetPath">
-        { props => <SheetInfo sheetPath={props.sheetPath}/> }
+            { props => <SheetInfo sheetPath={props.sheetPath}/> }
       </Route>
 
     </Switch>
+
+    <Footer></Footer>
     
   </div> );
 }

@@ -1,11 +1,14 @@
-import React from "react";
-import Front from "components/Front";
+import React, { useEffect } from "react";
 import GridView from "components/GridView";
 
 const VisualNovels = props => {
+
+    useEffect(() => {
+        document.title = "Visual Novels";
+    }, [])
+
     return <main className="visual-novels-page">
-                <Front pagKey = "vn" title="Visual Novels" searchType="Visual Novels"/>
-                <GridView section="vn" view="visual-novels" filter=""/>
+                <GridView section="vn" title="Visual Novels" searchType="Visual Novels" view="visual-novels" filter=""/>
             </main>
 };
 

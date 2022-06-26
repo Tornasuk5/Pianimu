@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Sheet from 'models/Sheet';
 import AnimeVN from 'models/AnimeVN';
 import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
@@ -8,34 +8,80 @@ const GridView = props => {
 
   const [listViews, setListViews] = useState([]);
 
+  const isTitle = props.title !== "";
+
+  const [anime, setAnime] = useState('');
+
+  const [searchText, setSearchText] = useState('');
+
+  const searchInputRef = useRef();
+
+  const getViews = async(searching, searchTextLength = 0) => {
+
+    let viewQuery = null;
+    
+    if (!searching){
+      switch (props.filter){
+        case "animePath":
+          viewQuery = query(collection(firestoreDb, props.view), where("animePath", "in", [`/animes/${props.filterValue}`, `/visual-novels/${props.filterValue}`]));
+          break;
+  
+        default:
+          viewQuery = query(collection(firestoreDb, props.view), orderBy("name", "asc"));
+          break;
+      }
+    } else {
+        if (searchTextLength > 0){
+          if (props.section == "anime-sheets")
+              viewQuery = query(collection(firestoreDb, props.view), where("anime", "==", anime.name), where("name", ">=", searchText), where("name", "<=", searchText + '\uf8ff'));
+          else 
+              viewQuery = query(collection(firestoreDb, props.view), where("name", ">=", searchText), where("name", "<=", searchText + '\uf8ff'));
+        }
+
+        else if(props.section == "anime-sheets")
+            viewQuery = query(collection(firestoreDb, props.view), where("animePath", "in", [`/animes/${props.filterValue}`, `/visual-novels/${props.filterValue}`]));
+    
+        else viewQuery = query(collection(firestoreDb, props.view), orderBy("name", "asc"));
+    }
+
+    let viewsFirestore = await getDocs(viewQuery);
+    const listViewsFirestore = [];
+
+    viewsFirestore.forEach((view) => { 
+      listViewsFirestore.push(view.data())
+    });
+    
+    setListViews(listViewsFirestore);
+}
+
   useEffect(() => {
-      const getViews = async() => {
+      if (!isTitle){
+        const getAnime = async() => {
 
-          let viewQuery = null;
+            const animeFirestore = await getDocs(query(collection(firestoreDb, "animes"), where("path", "==", props.animePath)));
 
-          switch (props.filter){
-            case "animePath":
-              viewQuery = query(collection(firestoreDb, props.view), where("animePath", "in", [`/animes/${props.filterValue}`, `/visual-novels/${props.filterValue}`]));
-              break;
+            if (animeFirestore.docs.length == 0){
+                const vnFirestore = await getDocs(query(collection(firestoreDb, "visual-novels"), where("path", "==", props.animePath)));
 
-            default:
-              viewQuery = query(collection(firestoreDb, props.view), orderBy("name", "asc"));
-              break;
-          }
+                vnFirestore.forEach((vnFs) => { 
+                    setAnime(vnFs.data());
+                });
 
-          let viewsFirestore = await getDocs(viewQuery);
-          const listViewsFirestore = [];
+            } else 
+                animeFirestore.forEach((animeFs) => { 
+                    setAnime(animeFs.data());
+                });
+        }
+    
+        getAnime();
 
-          viewsFirestore.forEach((view) => { 
-            listViewsFirestore.push(view.data())
-          });
-          
-          setListViews(listViewsFirestore);
       }
 
-      getViews();
+      getViews(false);
 
   }, []);
+
+  document.title = anime.name == undefined ? "Pianimu" : anime.name;
 
   const pagSection = props.section;
   const pagClass = `list-${pagSection}-section`;
@@ -44,7 +90,6 @@ const GridView = props => {
 
   let mapViews = null;
   
-
   if (pagSection === "sheets" || pagSection === "anime-sheets")
       mapViews = listViews.map (
         view =>
@@ -56,37 +101,52 @@ const GridView = props => {
         view => <AnimeVN key={view.id} name={view.name} img={view.img} path={view.path}/>
       )
 
-  /*
-  switch (pagClass){
-    case "Home":
-      mapViews = listViews.map(view => 
-                  <Sheet key={view.id} name={view.name} anime={view.anime} imgSheet={view.img} path={view.path} pdf={view.pdf}/>
-                 )
-      break;
-      case "Sheets":
-      mapViews = listViews.map(view => 
-                  <Sheet key={view.id} name={view.name} anime={view.anime} imgSheet={view.img} path={view.path} pdf={view.pdf}/>
-                 )
-      break;
-      case "Animes":
-      mapViews = listViews.map(view => 
-                  <AnimeVs key={view.id} name={view.name} imgSheet={view.img} path={view.path}/>
-                 )
-      break;
-      case "Visual Novels":
-      mapViews = listViews.map(view => 
-                  <AnimeVs key={view.id} name={view.name} imgSheet={view.img} path={view.path}/>
-                 )
-      break;
-  }
-  */
-
-  return (<section className={pagClass}>
-             
-            <div className={listClass}> {mapViews} </div>
-                       
-        </section>
+  return (<div>
+              <section className={`front-${pagSection}`}>
+                  <div className={`front-${pagSection}-container`}>
+                      <h2>{!isTitle ? anime.name : props.title}</h2>
+                      <div className='front-search'>
+                          <div className='front-search-bar'>
+                              <input ref={searchInputRef} id="searcher" type="text" placeholder={`${props.searchType}...`} 
+                                    onChange={() => searchViews(searchInputRef.current, setSearchText, getViews)}
+                              />
+                          </div>
+                          <div className='front-search-icon' onClick={() => { onClickSearch(searchInputRef.current, setListViews) }}>
+                              <i className="bi bi-search"></i>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+              <section className={pagClass}>
+                  <div className={listClass}> {mapViews} </div>     
+              </section>
+          </div>
+        
   ); 
+}
+
+function onClickSearch(searchInputRef){
+    if (window.getComputedStyle(searchInputRef).display == "none")
+        searchInputRef.style.display = "flex";
+
+    searchInputRef.focus();
+}
+
+function searchViews(searchInputRef, setSearchText, getViews){
+
+    let seachText = searchInputRef.value;
+
+    if (seachText.length > 0){
+      let searchTextArray = seachText.split("");
+
+      searchTextArray[0] = searchTextArray[0].toUpperCase();
+      
+      seachText = searchTextArray.join("");
+    }
+
+    setSearchText(seachText);
+
+    getViews(true, seachText.length);
 }
 
 export default GridView;

@@ -1,11 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
-import Front from "components/Front";
+import React, { useEffect } from 'react';
 import GridView from "components/GridView";
 
 const Animes = props => {
+
+    useEffect(() => {
+        document.title = "Animes";
+    }, [])
+
     return <main className="animes-page">
-                <Front pagKey = "animes" title="Animes" searchType="Animes"/>
-                <GridView section="animes" view="animes" filter=""/>
+                <GridView section="animes" title="Animes" searchType="Animes" view="animes" filter=""/>
             </main>
 };
 

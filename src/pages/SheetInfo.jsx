@@ -5,7 +5,6 @@ import firestoreDb from 'firebaseConfig';
 
 const SheetInfo = props => {
     const [sheet, setSheet] = useState('');
-
     const [location, setLocation] = useLocation();
 
     useEffect(() => {
@@ -16,17 +15,19 @@ const SheetInfo = props => {
             sheetFirestore.forEach((sheet) => {
                 setSheet(sheet.data());
             });
-              
+
         }
 
         getSheet();
-  
+
     }, []);
+
+    document.title = sheet.name == undefined ? "Pianimu" : sheet.name;
 
     return <main className="sheet-info-page">
                 <div className="sheet-layout">
                     <div className="sheet-layout-img">
-                        <a href='' target="_blank" style={{ backgroundImage: `url(${sheet.sheetImg})` }}>
+                        <a href={sheet.pdf} target="_blank" style={{ backgroundImage: `url(${sheet.sheetImg})` }}>
                             <img src={sheet.sheetImg}/>
                         </a>
                     </div>
@@ -55,12 +56,14 @@ const SheetInfo = props => {
                             </div>
                         </a>
 
+                        {/*
                         <a href='#' target='_blank'>
                             <div className='sheet-download'>
                                 <i className="bi bi-download"></i>
                                 <p>Download</p>
                             </div>
                         </a>
+                        */}
 
                         <a onClick={() => setLocation(sheet.animePath)}>
                             <div className='sheet-download'>

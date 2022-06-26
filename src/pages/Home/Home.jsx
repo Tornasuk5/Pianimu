@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FrontHome from "./FrontHome";
 import SliderListView from "components/SliderListView";
 
 const Home = props => {
+
+    useEffect(() => {
+        document.title = "Pianimu";
+    }, [])
+
     return <main className="home-page">
                 <FrontHome/>
                 <div className="home-sections">

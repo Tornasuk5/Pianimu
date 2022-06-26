@@ -1,4 +1,4 @@
-.front-sheets, .front-animes, .front-vn{
+.front-sheets, .front-animes, .front-anime-sheets, .front-vn{
     width: 100%;
     min-height: 22vh;
     display: flex;
@@ -20,5 +20,42 @@
                 font-size: $h2_big_size_desktop;
             }
         }
+
+        .front-search{
+            display: flex;
+            align-items: center;
+
+            &-icon{
+                display: flex;
+                cursor: pointer;
+                transition-duration: 0.2s;
+    
+                i{
+                    font-size: 1.5rem;
+                }
+    
+                &:hover{
+                    transform: scale(1.2);
+                }
+            }
+            
+            &-bar{
+                display: flex;
+
+                input{
+                    display: none;
+                    width: 15rem;
+                    margin-right: 1rem;
+                    padding: .7rem;
+                    border: solid 3px $main_color_1;
+                    border-radius: 5px;
+
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+        }
+        
     }
 }
